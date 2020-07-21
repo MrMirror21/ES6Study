@@ -305,3 +305,65 @@ function getSet() {
 /*
 <script type="module" src="fileName.js"></script>
 */
+
+// Use export to Share a Code Block
+// If you want to use some functions at other files,
+// use export.
+function exportFunction() {
+  export const add = (x, y) => {
+    return x + y;
+  };
+}
+
+function exportFunction2() {
+  const add = (x, y) => {
+    return x + y;
+  };
+
+  export { add }; // export all functions in '{}'.
+}
+
+// If only one value is being exported from a file,
+// or need to create a fallback value for a file or module.
+// use export default.
+function exportDefault() {
+  export default function add(x, y) {
+    return x + y;
+  };
+}
+
+// Reuse JS code using import
+function importFunction() {
+import {add} from './filename.js';
+import {add, subtract} from './filename2.js';
+import * as modulename from './filename3.js'; // take all functions in file, use functions by modulename.functionName
+}
+
+// Promise in JS
+
+// use it to make a promise to do something usally asychronously.
+// When the taskcompletes, you either fulfill your promise or fail to do so.
+// `Promise` is a constructor function, so you need to use the `new` keyword to create one.
+// It takes a function, as its argument, with two parameters - `resolve` and `reject`.
+// These are methods used to determine the outcome of the promise.
+const myPromise = new Promise((resolve, reject) => {
+  if (condition) {
+    resolve("Done");
+  } else {
+    reject("failed");
+  }
+});
+
+// A promise has three states: `pending`, `fulfilled`, `rejected`.
+
+// Handle a Fulfilled Promise with then
+myPromise.then(result => {
+  // do something with the result
+  console.log(result);
+})
+
+// Handle a Rejected Promise with catch
+myPromise.catch(error => {
+  // do something with the error
+  console.log(error);
+});
